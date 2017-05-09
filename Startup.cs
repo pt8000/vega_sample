@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using VegaApp.Data;
+using AutoMapper;
 
 namespace WebApplicationBasic
 {
@@ -30,6 +33,14 @@ namespace WebApplicationBasic
         {
             // Add framework services.
             services.AddMvc();
+
+            //add dbcontext as a service to inject it later
+            services.AddDbContext<VegaDbContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("VegaConn"))
+            );
+
+            //add automapper
+            services.AddAutoMapper(typeof(Startup)); //That scans the assembly from the Startup class for Profiles, and automatically adds them using Mapper.Initialize. DO NOT call Mapper.Initialize after this.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
