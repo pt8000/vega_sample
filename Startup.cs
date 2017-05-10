@@ -36,7 +36,7 @@ namespace WebApplicationBasic
 
             //add dbcontext as a service to inject it later
             services.AddDbContext<VegaDbContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("VegaConn"))
+                options => options.UseSqlServer(Configuration.GetConnectionString("VegaConn")) //dziala też:  Configuration["VegaConn"]
             );
 
             //add automapper

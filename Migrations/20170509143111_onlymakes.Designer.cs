@@ -8,9 +8,10 @@ using VegaApp.Data;
 namespace _2KursVega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    partial class VegaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170509143111_onlymakes")]
+    partial class onlymakes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -21,9 +22,7 @@ namespace _2KursVega.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255);
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
@@ -37,15 +36,13 @@ namespace _2KursVega.Migrations
 
                     b.Property<int>("MakeId");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255);
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MakeId");
 
-                    b.ToTable("Models");
+                    b.ToTable("Model");
                 });
 
             modelBuilder.Entity("VegaApp.Modells.Model", b =>

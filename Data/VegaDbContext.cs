@@ -9,6 +9,6 @@ namespace VegaApp.Data
         {            
         }
 
-        public DbSet<Makes> Makes { get; set; }
+        public DbSet<Make> Makes { get; set; } //modele i inne zrobia sie same ze względu na powiązania z Makes
     }
 }
