@@ -22,4 +22,10 @@ namespace VegaApp.Resources
         public string Name { get; set; }
         //zwrotne odniesienie usuwamy stad bo tworzy petle pomiedz Makes i Models
     }
+
+    public class FeatureView
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 }

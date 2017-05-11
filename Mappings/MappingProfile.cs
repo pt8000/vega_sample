@@ -9,6 +9,7 @@ namespace VegaApp.Mappers
             // Add as many of these lines as you need to map your objects
             CreateMap<Make, MakesView>().ReverseMap(); //robi obie mapy, z makes to makesview i odwrotna też
             CreateMap<Model, ModelView>().ReverseMap();
+            CreateMap<Feature, FeatureView>().ReverseMap();
         }
     }
 }

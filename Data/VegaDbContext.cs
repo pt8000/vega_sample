@@ -10,5 +10,7 @@ namespace VegaApp.Data
         }
 
         public DbSet<Make> Makes { get; set; } //modele i inne zrobia sie same ze względu na powiązania z Makes
+        public DbSet<Feature> Feature { get; set; }
+        
     }
 }

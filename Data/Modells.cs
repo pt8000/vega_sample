@@ -30,12 +30,12 @@ namespace VegaApp.Modells
         public Make Make { get; set; } //referencja wsteczna do tego ze ten model jest na liscie modeli w Make
         public int MakeId { get; set; } //zeby nie dodawac do modelu calego obiektu Make, warto miec tylko jego id. nazwa musi byc: klasa plus pole z kluczem glownym
         
-        
     }
-
     public class Feature
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        
     }
 }

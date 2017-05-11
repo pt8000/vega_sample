@@ -8,9 +8,10 @@ using VegaApp.Data;
 namespace _2KursVega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    partial class VegaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170510115311_Features")]
+    partial class Features
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -21,9 +22,13 @@ namespace _2KursVega.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("ModelId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ModelId");
 
                     b.ToTable("Feature");
                 });
@@ -58,6 +63,14 @@ namespace _2KursVega.Migrations
                     b.HasIndex("MakeId");
 
                     b.ToTable("Models");
+                });
+
+            modelBuilder.Entity("VegaApp.Modells.Feature", b =>
+                {
+                    b.HasOne("VegaApp.Modells.Model", "Model")
+                        .WithMany("Features")
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("VegaApp.Modells.Model", b =>
