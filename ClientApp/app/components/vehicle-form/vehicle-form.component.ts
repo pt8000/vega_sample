@@ -22,12 +22,12 @@ export class VehicleFormComponent implements OnInit {
   ngOnInit() {
     this.vehicleService.getMakes().subscribe(makes => { //blok kodu w {} dlatego ze jest to async wywolanie i console.log poza takim blokiem wykona sie wczesniej niz dane dojada do zmiennej, tylko po to, normlanie nie trzeba tego
       this.makes = makes;
+      // console.log("Makes: ", this.makes);
+    });
 
     this.vehicleService.getFeatures().subscribe(features => 
       this.features = features);
 
-      // console.log("Makes: ", this.makes);
-    });
   }
 
   onMakeChange(){

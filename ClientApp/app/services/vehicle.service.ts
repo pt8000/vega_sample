@@ -6,15 +6,15 @@ import 'rxjs/add/operator/map';
 export class VehicleService {
 
   constructor(private http: Http) { }
-  
+
   getMakes() {
     return this.http.get('/api/makes')
-      .map(resp => resp.json());    
+      .map(resp => resp.json());
   }
 
   getFeatures() {
     return this.http.get('/api/features')
       .map(resp => resp.json());
   }
-  
+
 }

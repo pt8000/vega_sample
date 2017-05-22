@@ -10,7 +10,7 @@ using VegaApp.Resources;
 
 namespace VegaApp.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")] //zasada ogolna
     public class FeaturesController : Controller
     {
         private readonly VegaDbContext _context;
@@ -21,12 +21,12 @@ namespace VegaApp.Controllers
             this._context = _context;
         }
 
-        [HttpGet("/api/features")]
-        public async Task<IEnumerable<FeatureView>> GetFeatures()
+        [HttpGet("/api/features")] //nadpisana przez wlasna sciezke dostepu
+        public async Task<IEnumerable<KeyValuePairResource>> GetFeatures()
         {
             var features = await _context.Feature.ToListAsync();
             
-            return _mapper.Map<IEnumerable<Feature>, IEnumerable<FeatureView>>(features); 
+            return _mapper.Map<IEnumerable<Feature>, IEnumerable<KeyValuePairResource>>(features); 
         }
     }
 }

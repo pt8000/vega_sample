@@ -31,9 +31,6 @@ namespace WebApplicationBasic
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            services.AddMvc();
-
             //add dbcontext as a service to inject it later
             services.AddDbContext<VegaDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("VegaConn")) //dziala też:  Configuration["VegaConn"]
@@ -41,6 +38,13 @@ namespace WebApplicationBasic
 
             //add automapper
             services.AddAutoMapper(typeof(Startup)); //That scans the assembly from the Startup class for Profiles, and automatically adds them using Mapper.Initialize. DO NOT call Mapper.Initialize after this.
+
+            //wytlumaczenie o scoped, singletor i transistent w lekcji 67. kursu 
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
+            // Add framework services.
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

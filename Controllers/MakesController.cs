@@ -23,11 +23,11 @@ namespace VegaApp.Controllers
         }
 
         [HttpGet("/api/makes")] //wg routy z góry, dostęp przez api/makes/getmakes
-        public async Task<IEnumerable<MakesView>> GetMakes() 
+        public async Task<IEnumerable<MakesResource>> GetMakes() 
         {
             var makesList = await _context.Makes.Include(m => m.Modele).ToListAsync();
             
-            return _mapper.Map<IEnumerable<Make>, IEnumerable<MakesView>>(makesList);
+            return _mapper.Map<IEnumerable<Make>, IEnumerable<MakesResource>>(makesList);
         }
     }
 }
