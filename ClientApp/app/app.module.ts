@@ -1,3 +1,4 @@
+import * as Raven from "raven-js";
 import { ErrorHandler } from '@angular/core';
 import { AppErrorHandler } from './app.error-handler';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +15,8 @@ import { CounterComponent } from './components/counter/counter.component';
 import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
 
 import { VehicleService } from './services/vehicle.service';
+
+Raven.config('https://cbc3c17a21c04b21a6170f96a1974f41@sentry.io/171750').install();
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -32,6 +35,7 @@ import { VehicleService } from './services/vehicle.service';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'vehicle/new', component: VehicleFormComponent },
+            { path: 'vehicle/:id', component: VehicleFormComponent },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },

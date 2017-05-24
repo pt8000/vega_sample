@@ -34,6 +34,8 @@ module.exports = (env) => {
                 'ng2-toasty',
                 'ng2-toasty/bundles/style-bootstrap.css',
                 'jquery',
+                'raven-js', //for sentry.io error logging
+                'underscore', //latwe wyciaganie np. id z tablicy obiektow i przepisanie automatycznie na tablice samych id
                 'zone.js',
             ]
         },
