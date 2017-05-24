@@ -4,9 +4,11 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using VegaApp.Data;
-using VegaApp.Modells;
+using VegaApp.Core;
+using VegaApp.Core.Models;
 using VegaApp.Resources;
+
+using VegaApp.Data;
 
 namespace VegaApp.Controllers
 {

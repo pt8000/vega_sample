@@ -5,7 +5,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VegaApp.Data;
-using VegaApp.Modells;
+using VegaApp.Core.Models;
 using VegaApp.Resources;
 
 namespace VegaApp.Controllers

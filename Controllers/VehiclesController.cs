@@ -3,7 +3,9 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using VegaApp.Core; //tu gdzie mamy interfejsy, ktore komunikuja sie z pakietem Data (dbcontext, unit of work, implementacja repositoriow)
+//folder Core, jako pakiet oddzielajacy do reverse injection principal
+//tu gdzie mamy interfejsy, ktore komunikuja sie z pakietem Data (dbcontext, unit of work, implementacja repositoriow)
+using VegaApp.Core; 
 using VegaApp.Core.Models;
 using VegaApp.Resources;
 
@@ -25,6 +27,8 @@ namespace VegaApp.Controllers
         [HttpPost("/api/vehicles/new")]
         public async Task<IActionResult> CreateVehicle([FromBody] SaveVehicleResource vehicleRes)
         {
+            throw new Exception();
+            
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 

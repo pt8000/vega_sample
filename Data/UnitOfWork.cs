@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using VegaApp.Core;
 
 namespace VegaApp.Data
 {

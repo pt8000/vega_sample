@@ -1,7 +1,10 @@
+import { ErrorHandler } from '@angular/core';
+import { AppErrorHandler } from './app.error-handler';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UniversalModule } from 'angular2-universal';
+import { ToastyModule } from "ng2-toasty";
 
 import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -23,6 +26,7 @@ import { VehicleService } from './services/vehicle.service';
         VehicleFormComponent
     ],
     imports: [
+        ToastyModule.forRoot(),
         FormsModule,
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
         RouterModule.forRoot([
@@ -35,6 +39,7 @@ import { VehicleService } from './services/vehicle.service';
         ])
     ],
     providers: [
+        { provide: ErrorHandler, useClass: AppErrorHandler}, //zastap customowa nasza klasa obsluge bledow
         VehicleService
     ]
 })
